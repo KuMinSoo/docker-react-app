@@ -5,11 +5,11 @@ language: generic
 services:
   - docker
 
-befor_install:
+before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t kumisnu/docker-react-app -f Dockerfile.dev .
+  - docker build -t kuminsu/docker-react-app -f Dockerfile.dev .
 
-script:
+script: 
   - docker run -e CI=true kuminsu/docker-react-app npm run test -- --coverage
 
 after_success:
