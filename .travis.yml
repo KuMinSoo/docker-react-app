@@ -7,7 +7,7 @@ services:
 
 befor_install:
   - echo "start creating an image with dockerfile"
-  -docker build -t kumisnu/docker-react-app -f Dockerfile.dev .
+  - docker build -t kumisnu/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true kuminsu/docker-react-app npm run test -- --coverage
