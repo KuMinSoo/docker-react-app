@@ -7,18 +7,19 @@ services:
 
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t kuminsu/docker-react-app -f Dockerfile.dev .
+  - docker build -t smileajw1004/docker-react-app -f Dockerfile.dev .
 
 script: 
-  - docker run -e CI=true kuminsu/docker-react-app npm run test -- --coverage
+  - docker run -e CI=true smileajw1004/docker-react-app npm run test -- --coverage
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
-  region: "ap-northeast-2"
-  app: "docker-react-app"
-  env: "Dockerreactapp-env"
-  bucket_name: "elasticbeanstalk-ap-northeast-2-760618558964"
-  bucket_path: "docker-react-app"
+  region: ap-northeast-2
+  app: docker-react-app
+  env: Dockerreactapp-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-760618558964
+  bucket_path: docker-react-app
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
