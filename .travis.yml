@@ -13,12 +13,11 @@ script:
   - docker run -e CI=true kuminsu/docker-react-app npm run test -- --coverage
 
 deploy:
-  edge: true
   provider: elasticbeanstalk
   region: ap-northeast-2
   app: docker-react-app
   env: Dockerreactapp-env
-  bucket_name: elasticbeanstalk-ap-northeast-2-760618558964
+  bucket_name: elasticbeanstalk:ap-northeast-2:760618558964
   bucket_path: docker-react-app
   on:
     branch: master
